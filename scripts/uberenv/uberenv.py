@@ -534,6 +534,8 @@ def main():
                 pkg_lnk_dir = "{}-install".format(uberenv_pkg_name)
                 if os.path.islink(pkg_lnk_dir):
                     os.unlink(pkg_lnk_dir)
+                elif os.path.isfile(hc_fname):
+                    sexe("rm -f {}".format(hc_fname))
                 print("")
                 print("[symlinking install to {}]".format(pjoin(dest_dir,pkg_lnk_dir)))
                 os.symlink(pkg_path["path"],os.path.abspath(pkg_lnk_dir))
